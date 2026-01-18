@@ -112,8 +112,13 @@ Ledge Drop: down
 This project is a full-featured platform fighter showcasing:
 
 Combat mechanics: Hitboxes, tilts, smashes, specials, aerials, dash attacks
+
 Movement & physics: Walk, run, dash, jumps, short hops, fast falls
+
 Defensive systems: Shielding, rolls, spot dodges, air dodges
+
 Game structure: Multiple stages, menus, scene transitions, and character selection
+
 Code architecture: Object oriented and reusable state machine for character actions
+
 Animation & visuals: Smooth movement and attack animations
