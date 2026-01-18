@@ -14,6 +14,7 @@ It features:
 
 PLAYER 1
 
+
 Left: A
 
 Right: D
@@ -31,6 +32,7 @@ Shield: R
 Light: hold shift
 
 PLAYER 2
+
 
 Left: p
 
@@ -67,6 +69,7 @@ Jump / Short Hop: tap up
 
 Fast Fall: down (in air)
 
+
 Attacks:
 
 Tilt Attacks / Jab: light + attack + left/right/up/down/none
@@ -81,6 +84,7 @@ Specials: special + left/right/up/down/none
 
 Aerials (in air): attack + left/right/up/down/none
 
+
 Defense:
 
 Shield: shield
@@ -90,6 +94,7 @@ Roll: shield + left/right
 Spot Dodge: shield + down
 
 Air Dodge / Directional Air Dodge: shield + left/right/up/down/none (in air)
+
 
 Ledge Options:
 
