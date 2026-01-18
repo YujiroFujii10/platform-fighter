@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://brn8gs1s0wi2m"]
+
+[ext_resource type="Script" uid="uid://dg8a5kp7n7atk" path="res://Characters/Ghost/GhostProjectile.gd" id="1_d85ot"]
+[ext_resource type="Texture2D" uid="uid://dbnntlpok5y3j" path="res://Characters/Ghost/Sprites/GhostSpin.png" id="2_d85ot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfxnp"]
+atlas = ExtResource("2_d85ot")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moyws"]
+atlas = ExtResource("2_d85ot")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jpu4"]
+atlas = ExtResource("2_d85ot")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0i35"]
+atlas = ExtResource("2_d85ot")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7ucw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfxnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moyws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jpu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0i35")
+}],
+"loop": true,
+"name": &"GhostProjectile",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vukim"]
+resource_name = "GhostProjectile"
+length = 0.133337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"GhostProjectile"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_yehfj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"GhostProjectile"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4lif0"]
+_data = {
+&"GhostProjectile": SubResource("Animation_vukim"),
+&"RESET": SubResource("Animation_yehfj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d85ot"]
+size = Vector2(40, 34)
+
+[node name="GhostProjectile" type="Area2D"]
+script = ExtResource("1_d85ot")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u7ucw")
+animation = &"GhostProjectile"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_4lif0")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d85ot")
+
+[connection signal="body_entered" from="." to="." method="_on_ghost_projectile_body_entered"]

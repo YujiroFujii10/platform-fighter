@@ -1,0 +1,174 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtxniv53v4d50"]
+
+[ext_resource type="Script" uid="uid://cb6osc1uo2o1y" path="res://Menu/Scripts/CharacterSelect.gd" id="1_knooa"]
+[ext_resource type="Texture2D" uid="uid://bvrceahta0lhn" path="res://Menu/Backgrounds/CharacterSelectBackground.png" id="1_w2sr1"]
+[ext_resource type="Texture2D" uid="uid://cn1uiveieo8pp" path="res://Menu/Images/GhostPortrait.png" id="3_6pgf8"]
+[ext_resource type="Texture2D" uid="uid://bs428q7bpqu64" path="res://Characters/Ghost/Sprites/GhostShield.png" id="3_mcmbc"]
+[ext_resource type="Script" uid="uid://d1eyomflabxqb" path="res://Menu/Scripts/Player1Cursor.gd" id="3_mfm5u"]
+[ext_resource type="Texture2D" uid="uid://yihn5vhy8ker" path="res://Menu/Images/BlueCursor.png" id="4_mcmbc"]
+[ext_resource type="Script" uid="uid://bup4a6lyjlvcx" path="res://Menu/Scripts/Player2Cursor.gd" id="4_tshbq"]
+[ext_resource type="Script" uid="uid://cohx3q3ttg4cy" path="res://Menu/Scripts/StartButton.gd" id="5_tshbq"]
+[ext_resource type="Texture2D" uid="uid://bukxmf1vtmf18" path="res://Menu/Images/RedCursor.png" id="6_6pgf8"]
+[ext_resource type="Script" uid="uid://cr4hiqel0oy6x" path="res://Menu/Scripts/MenuButton.gd" id="7_qhumc"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knooa")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_w2sr1")
+
+[node name="TitleLable" type="Label" parent="."]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 10.0
+offset_right = 1275.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 80
+text = "Character Select"
+
+[node name="CharactersGrid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 330.0
+offset_right = 960.0
+offset_bottom = 430.0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="Ghost" type="TextureButton" parent="CharactersGrid" groups=["CharacterButton"]]
+layout_mode = 2
+texture_normal = ExtResource("3_6pgf8")
+
+[node name="Random" type="TextureButton" parent="CharactersGrid" groups=["CharacterButton"]]
+layout_mode = 2
+texture_normal = ExtResource("3_mcmbc")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+script = ExtResource("7_qhumc")
+
+[node name="StartContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -41.0
+offset_right = -1.0
+offset_bottom = 40.0
+
+[node name="StartRectangle" type="ColorRect" parent="StartContainer"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 472.0
+offset_right = 1961.0
+offset_bottom = 588.0
+color = Color(0.365503, 0.692555, 0.912921, 1)
+
+[node name="StartButton" type="Button" parent="StartContainer"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 472.0
+offset_right = 1961.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 50
+text = "READY TO FIGHT!"
+script = ExtResource("5_tshbq")
+
+[node name="BottomUI" type="Control" parent="."]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 0
+offset_left = -151.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 151.0
+
+[node name="RectP1" type="ColorRect" parent="BottomUI"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 823.0
+offset_right = 1111.0
+offset_bottom = 1079.0
+color = Color(0, 0, 1, 0.588235)
+
+[node name="RectP2" type="ColorRect" parent="BottomUI"]
+layout_mode = 0
+offset_left = 1111.0
+offset_top = 823.0
+offset_right = 2071.0
+offset_bottom = 1079.0
+color = Color(1, 0, 0, 0.588235)
+
+[node name="Player1Portrait" type="TextureRect" parent="BottomUI"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 500.0
+offset_top = 850.0
+offset_right = 650.0
+offset_bottom = 1000.0
+stretch_mode = 5
+
+[node name="Player2Portrait" type="TextureRect" parent="BottomUI"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 1452.0
+offset_top = 850.0
+offset_right = 1652.0
+offset_bottom = 1050.0
+stretch_mode = 5
+
+[node name="Player1Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 660.0
+offset_right = 820.0
+offset_bottom = 810.0
+mouse_filter = 0
+texture = ExtResource("4_mcmbc")
+expand_mode = 1
+script = ExtResource("3_mfm5u")
+
+[node name="Player2Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 656.0
+offset_right = 1238.0
+offset_bottom = 806.0
+mouse_filter = 0
+texture = ExtResource("6_6pgf8")
+expand_mode = 1
+script = ExtResource("4_tshbq")
+
+[node name="GhostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 290.0
+offset_right = 346.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+text = "Ghost"
+
+[node name="RandomLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 290.0
+offset_right = 725.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Random"

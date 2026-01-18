@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4e76narrtm3h"]
+
+[ext_resource type="PackedScene" uid="uid://b571tyf637itg" path="res://Stages/StageAssets/Ledge.tscn" id="1_677hv"]
+[ext_resource type="Script" uid="uid://bsc8w41mt75lr" path="res://Stages/Bounds.gd" id="1_xajb5"]
+[ext_resource type="Texture2D" uid="uid://d3dhh51yeul0i" path="res://Stages/Stage2/PlatformStage2.png" id="3_v0u3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xajb5"]
+size = Vector2(902, 984)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0u3w"]
+size = Vector2(2552, 1658)
+
+[node name="Stage2" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(960, 1186)
+shape = SubResource("RectangleShape2D_xajb5")
+
+[node name="Bounds" type="Area2D" parent="."]
+visible = false
+script = ExtResource("1_xajb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(960, 583)
+shape = SubResource("RectangleShape2D_v0u3w")
+
+[node name="LedgeL" parent="." instance=ExtResource("1_677hv")]
+visible = false
+position = Vector2(509, 717)
+
+[node name="LedgeR" parent="." instance=ExtResource("1_677hv")]
+visible = false
+position = Vector2(1411, 717)
+ledge_side = "Right"
+
+[node name="StageBackground" type="Sprite2D" parent="."]
+
+[node name="StagePlatform" type="Sprite2D" parent="."]
+position = Vector2(960.5, 959)
+scale = Vector2(2.69434, 0.511719)
+texture = ExtResource("3_v0u3w")

@@ -1,0 +1,87 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://df3ljo4i8x4g4"]
+
+[ext_resource type="Texture2D" uid="uid://08aeuip4uw80" path="res://Characters/Ghost/Sprites/GhostWin.png" id="1_k3agt"]
+[ext_resource type="Texture2D" uid="uid://ba4aor4vs012p" path="res://Characters/Ghost/Sprites/GhostLose.png" id="1_qty2u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n0o4"]
+atlas = ExtResource("1_qty2u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coscc"]
+atlas = ExtResource("1_qty2u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jyt1"]
+atlas = ExtResource("1_qty2u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjmb3"]
+atlas = ExtResource("1_qty2u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk2in"]
+atlas = ExtResource("1_qty2u")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vmkh"]
+atlas = ExtResource("1_k3agt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5bvl"]
+atlas = ExtResource("1_k3agt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kq7w"]
+atlas = ExtResource("1_k3agt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdqdu"]
+atlas = ExtResource("1_k3agt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vbk6"]
+atlas = ExtResource("1_k3agt")
+region = Rect2(256, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n0o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coscc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jyt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjmb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk2in")
+}],
+"loop": true,
+"name": &"Loser",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vmkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5bvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kq7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdqdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vbk6")
+}],
+"loop": true,
+"name": &"Winner",
+"speed": 5.0
+}]

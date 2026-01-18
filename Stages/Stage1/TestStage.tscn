@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://clcfl78cs3fql"]
+
+[ext_resource type="Texture2D" uid="uid://c2vwiy5nvgshd" path="res://Stages/Stage1/Platform1.png" id="1_5dl80"]
+[ext_resource type="Texture2D" uid="uid://clk0kruq6hsm7" path="res://Stages/Stage1/Stage1Background.png" id="3_5dl80"]
+[ext_resource type="PackedScene" uid="uid://b571tyf637itg" path="res://Stages/StageAssets/Ledge.tscn" id="3_wwwym"]
+[ext_resource type="Script" uid="uid://bsc8w41mt75lr" path="res://Stages/Bounds.gd" id="5_0qou3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ylqo"]
+size = Vector2(963.75, 40.2813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dl80"]
+size = Vector2(3006, 1948)
+
+[node name="TestStage" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(960, 769.141)
+shape = SubResource("RectangleShape2D_3ylqo")
+
+[node name="Label" type="Label" parent="Floor"]
+offset_left = 941.0
+offset_top = 757.0
+offset_right = 978.0
+offset_bottom = 780.0
+text = "floor"
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(820, 890, 1100, 890, 1340, 845, 1442, 789.5, 478, 789.5, 580, 845)
+
+[node name="Label" type="Label" parent="Wall"]
+offset_left = 943.0
+offset_top = 812.0
+offset_right = 975.0
+offset_bottom = 835.0
+text = "wall"
+metadata/_edit_use_anchors_ = true
+
+[node name="LedgeR" parent="." instance=ExtResource("3_wwwym")]
+visible = false
+position = Vector2(1447, 772)
+scale = Vector2(1.5, 1.5)
+ledge_side = "Right"
+
+[node name="LedgeL" parent="." instance=ExtResource("3_wwwym")]
+visible = false
+position = Vector2(472, 772)
+scale = Vector2(1.5, 1.5)
+
+[node name="Bounds" type="Area2D" parent="."]
+visible = false
+script = ExtResource("5_0qou3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(960, 509)
+shape = SubResource("RectangleShape2D_5dl80")
+
+[node name="StageBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_5dl80")
+
+[node name="StagePlatform" type="Sprite2D" parent="."]
+position = Vector2(961, 637.5)
+scale = Vector2(0.909505, 0.801758)
+texture = ExtResource("1_5dl80")

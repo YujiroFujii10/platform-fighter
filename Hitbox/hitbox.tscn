@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://df1gl66vxw5iy"]
+
+[ext_resource type="Script" uid="uid://bsd3ygtx7hfiu" path="res://Hitbox/Hitbox.gd" id="1_p7cpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2ejj"]
+
+[node name="Hitbox" type="Area2D"]
+collision_layer = 32
+collision_mask = 192
+script = ExtResource("1_p7cpr")
+
+[node name="HitboxShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l2ejj")

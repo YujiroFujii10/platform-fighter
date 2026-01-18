@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://bomabklk7hsig"]
+
+[ext_resource type="Texture2D" uid="uid://bs428q7bpqu64" path="res://Characters/Ghost/Sprites/GhostShield.png" id="1_4n0pl"]
+[ext_resource type="Script" uid="uid://d1lhm8d68gfwn" path="res://Menu/Scripts/StageSelect.gd" id="1_gfyqc"]
+[ext_resource type="Texture2D" uid="uid://dmsptvl5agqwm" path="res://Menu/Backgrounds/MainMenuBackground.png" id="2_5vjc7"]
+[ext_resource type="Script" uid="uid://cr4hiqel0oy6x" path="res://Menu/Scripts/MenuButton.gd" id="3_5uoa2"]
+[ext_resource type="Texture2D" uid="uid://qnuhk1uoyt05" path="res://Stages/Stage1/Stage1PreviewSmall.png" id="3_dhvns"]
+
+[node name="StageSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfyqc")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_5vjc7")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 7.0
+offset_right = 1198.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 80
+text = "Stage Select"
+
+[node name="StageGrid" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 140.0
+offset_right = 1450.0
+offset_bottom = 540.0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 40
+columns = 2
+
+[node name="TestStage" type="TextureButton" parent="StageGrid"]
+layout_mode = 2
+texture_normal = ExtResource("3_dhvns")
+
+[node name="Stage2" type="TextureButton" parent="StageGrid"]
+layout_mode = 2
+texture_normal = ExtResource("1_4n0pl")
+
+[node name="Random" type="TextureButton" parent="StageGrid"]
+layout_mode = 2
+texture_normal = ExtResource("1_4n0pl")
+
+[node name="PreviewBackground" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 230.0
+offset_right = 960.0
+offset_bottom = 980.0
+color = Color(0.0745098, 0.215686, 1, 0.588235)
+
+[node name="SelectedStagePreview" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 110.0
+offset_top = 280.0
+offset_right = 910.0
+offset_bottom = 930.0
+expand_mode = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+script = ExtResource("3_5uoa2")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3gh61j866188"]
+
+[ext_resource type="Script" uid="uid://16gem20roft3" path="res://Menu/Scripts/MainMenu.gd" id="1_e1xpn"]
+[ext_resource type="Script" uid="uid://cr4hiqel0oy6x" path="res://Menu/Scripts/MenuButton.gd" id="2_swd6r"]
+[ext_resource type="Texture2D" uid="uid://dmsptvl5agqwm" path="res://Menu/Backgrounds/MainMenuBackground.png" id="2_tma8a"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1xpn")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_tma8a")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 164.0
+offset_right = 1738.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 200
+text = "Platform Fighter"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 600.0
+offset_right = 1540.0
+offset_bottom = 908.0
+
+[node name="StartButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start Game"
+script = ExtResource("2_swd6r")
+
+[node name="OptionsButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Options"
+script = ExtResource("2_swd6r")
+
+[node name="QuitButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+script = ExtResource("2_swd6r")

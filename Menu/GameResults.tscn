@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://csw8ap8x1mv5w"]
+
+[ext_resource type="Script" uid="uid://c1lx27i3ux4og" path="res://Menu/Scripts/GameResults.gd" id="1_x74e2"]
+[ext_resource type="SpriteFrames" uid="uid://df3ljo4i8x4g4" path="res://Characters/Ghost/GhostFrames.tres" id="2_55lia"]
+
+[sub_resource type="Animation" id="Animation_b0u8x"]
+resource_name = "Loser"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Loser"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_kgcwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Winner"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dahbt"]
+resource_name = "Winner"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Winner"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smyfk"]
+_data = {
+&"Loser": SubResource("Animation_b0u8x"),
+&"RESET": SubResource("Animation_kgcwq"),
+&"Winner": SubResource("Animation_dahbt")
+}
+
+[node name="GameResults" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x74e2")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Continue" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 1252.0
+offset_right = 1920.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 100
+text = "Continue"
+
+[node name="WinnerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 178.0
+offset_right = 800.0
+offset_bottom = 267.0
+theme_override_font_sizes/font_size = 50
+text = "player ? wins"
+horizontal_alignment = 1
+
+[node name="LoserLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1285.0
+offset_top = 468.0
+offset_right = 1607.0
+offset_bottom = 567.0
+theme_override_font_sizes/font_size = 50
+text = "player ? loses"
+horizontal_alignment = 1
+
+[node name="WinnerPortrait" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="WinnerPortrait"]
+position = Vector2(560, 670)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("2_55lia")
+animation = &"Winner"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WinnerPortrait"]
+root_node = NodePath("../AnimatedSprite")
+libraries = {
+&"": SubResource("AnimationLibrary_smyfk")
+}
+
+[node name="LoserPortrait" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="LoserPortrait"]
+position = Vector2(1450, 750)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_55lia")
+animation = &"Loser"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoserPortrait"]
+root_node = NodePath("../../WinnerPortrait/AnimatedSprite")
+libraries = {
+&"": SubResource("AnimationLibrary_smyfk")
+}
