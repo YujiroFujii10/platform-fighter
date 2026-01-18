@@ -14,6 +14,7 @@ It features:
 
 PLAYER 1
 Left: A
+
 Right: D
 Up: W
 Down: S
