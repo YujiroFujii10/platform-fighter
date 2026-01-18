@@ -53,7 +53,7 @@ Light: hold enter
 
 ## Controls
 
-Movement:
+MOVEMENT:
 
 Walk: light + left/right
 
@@ -70,7 +70,7 @@ Jump / Short Hop: tap up
 Fast Fall: down (in air)
 
 
-Attacks:
+ATTACKS:
 
 Tilt Attacks / Jab: light + attack + left/right/up/down/none
 
@@ -85,7 +85,7 @@ Specials: special + left/right/up/down/none
 Aerials (in air): attack + left/right/up/down/none
 
 
-Defense:
+DEFENSE:
 
 Shield: shield
 
@@ -96,7 +96,7 @@ Spot Dodge: shield + down
 Air Dodge / Directional Air Dodge: shield + left/right/up/down/none (in air)
 
 
-Ledge Options:
+LEDGE OPTIONS:
 
 Regular Getup: left/right
 
